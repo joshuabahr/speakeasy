@@ -243,7 +243,6 @@ class EventChat extends Component {
       event_id: this.props.event.id,
       user_name: this.props.user_name
     });
-    console.log(this.props.messages);
   }
 
   _handleLogOut() {

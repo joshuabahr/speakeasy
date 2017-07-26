@@ -108,7 +108,6 @@ s3.upload (s3_params, function (err, data) {
   if (err) {
     console.log("Error", err);
   } if (data) {
-    console.log("Upload Success", data.Location);
     res.status(201).send(data.Location);
   }
 });

@@ -8,7 +8,6 @@ export const SET_NEARBY_EVENTS = 'SET_NEARBY_EVENTS';
 
 
 export function setActiveEventId(activeEventId){
-  // console.log("Step 2, activeEventId in action ", activeEventId)
   return {
     type : SET_ACTIVE_EVENT_ID,
     payload: activeEventId
@@ -16,7 +15,6 @@ export function setActiveEventId(activeEventId){
 }
 
 export function setCurrentEventLocation(currentEventLocation){
-  // console.log("2, currentLocation in action, lat:", currentEventLocation.lat, "long: ", currentEventLocation.lng );
   return {
     type: SET_CURRENT_EVENT_LOCATION,
     payload: currentEventLocation
@@ -24,17 +22,8 @@ export function setCurrentEventLocation(currentEventLocation){
 }
 
 export function setNearbyEvents (nearbyEvents){
-  // console.log("nearbyEvents step 2, nearbyEvents are", nearbyEvents);
   return{
     type: SET_NEARBY_EVENTS,
     payload: nearbyEvents
   }
 }
-
-
-// export function addTempEventProfilePhoto (imageData){
-//   return {
-//     type: ADD_EVENT_PHOTO,
-//     payload: imageData
-//   }
-// }

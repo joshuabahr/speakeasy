@@ -18,7 +18,6 @@ class Landing_Page extends Component {
   }
 
   login() {
-    console.log('clicked login');
     auth.login();
   }
 

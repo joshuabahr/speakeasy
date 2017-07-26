@@ -42,7 +42,6 @@ class Event_Setting extends Component {
   getEventLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log('geolocation.coords:', position.latitude, position.longitude);
         this.setState({
           currentEventLocation: [position.coords.latitude, position.coords.longitude]
         })
@@ -91,7 +90,6 @@ class Event_Setting extends Component {
     this.setState({
       eventPicture: acceptedFile[0]
     }, () => {
-      console.log("eventPicture before this.upload()", this.state.eventPicture)
       this.upload();
     })
   }
@@ -109,7 +107,6 @@ class Event_Setting extends Component {
             .then((awsResponse) => {
               counter++;
               this.registerImageUrl(eachFile);
-              console.log("no error in axios.post, response is ", awsResponse);
             })
           counter++;
         })

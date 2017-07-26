@@ -65,7 +65,7 @@ class DirectMessageList extends Component {
             <div className="row">
               <div className="container text-center row col-md-8 col-md-offset-2">
                 <h2>You have direct messages with...</h2>
-                <p style={listStyle}>{this.renderRoomDetail()}</p>
+                <div style={listStyle}>{this.renderRoomDetail()}</div>
               </div>
             </div>
           </div>

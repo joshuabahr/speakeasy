@@ -14,7 +14,6 @@ const signupUser = (req, res) => {
       }
     })
     .spread((response, isCreated) => {
-      // console.log("signupUser res", response)
       if (isCreated) {
         res.status(201).send(response);
       } else {
@@ -57,7 +56,6 @@ const editUserProfile = (req, res) => {
 
 const fetchUserProfile = (req, res) => {
   let id = req.params.userId;
-  console.log('*** id ***', id);
   Table.User
     .findOne({
       where: { id: id }
