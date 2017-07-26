@@ -37,10 +37,9 @@ function renderNavBar() {
 
 function renderFooter() {
   return (
-    <footer className="col-lg-8 col-lg-offset-2 text-center">
-      <p>
-        Created by JMNI at Hack Reactor</p>
-    </footer>
+    <div className="text-center my-footer">
+        <i>Created by JMNI at Hack Reactor</i>
+    </div>
   )
 }
 

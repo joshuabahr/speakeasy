@@ -175,7 +175,7 @@ class Event_Setting extends Component {
                   <Col>
                     <Field
                       label="EventName"
-                      name="eventname"
+                      name="Event Name"
                       type="text"
                       component={this.renderField}
                     />
@@ -187,7 +187,7 @@ class Event_Setting extends Component {
                     />
 
                     <Field
-                      label="description"
+                      label="Event Description"
                       name="description"
                       type="text"
                       component={this.renderField}
