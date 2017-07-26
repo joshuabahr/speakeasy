@@ -38,41 +38,42 @@ class User_Events extends Component {
     this.props.clearActivePreviousEvent();
   }
 
-  renderEventMessage() {
-    let msg;
-
-    if (this.state.userEvents.length) {
-      msg = 'PREVIOUS EVENTS';
-    } else {
-      msg = 'You haven\'t been to any events yet!';
-    }
-
-    return (
-      <div className="col-lg-8 col-lg-offset-2 container content-section text-center">
-        <h2>{msg}</h2>
-      </div>
-    );
-  }
-
   renderEvents() {
-    console.log("this.state.userEvents:::", this.state.userEvents);
     let events = null;
     if (this.state.userEvents.length) {
       events = this.state.userEvents.map((event, idx) => {
         return (
-            <li className="col-md-3">
+            <li className="col-md-3 text-center">
               <Link to="/previouseventphotos"
               onClick={() => this.handlePreviousEventPhotos(event)}>
                 <img src={event.event.eventPhoto || `http://unsplash.it/680/380?random=${idx}`} />
-                  <p>
-                    {event.event.eventName}
-                  </p>
+                  <p>{event.event.eventName}</p>
               </Link>
             </li>
         )
       })
     }
     return events;
+  }
+
+    renderEventMessage() {
+    let msg;
+
+    if (this.state.userEvents.length) {
+      msg = 'PREVIOUS EVENTS';
+    } else {
+      msg = 'YOU HAVE\'NT BEEN TO ANY EVENTS YET!';
+    }
+
+    return (
+      <section>
+        <div className="container content-section text-center">
+          <div className="container row col-md-8 col-md-offset-2 text-center">
+            <h2>{msg}</h2>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   handlePreviousEventPhotos(event) {
@@ -88,22 +89,15 @@ class User_Events extends Component {
            brand="SPEAKEASY"
         />
 
-        <section>
-          <div className="container content-section text-center">
-            <div className="row">
-              <div className="container text-center row col-md-8 col-md-offset-2">
-                <ul>
-                  {this.renderEventMessage()}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
+
+        {this.renderEventMessage()}
+
         <section>
           <div className="container-fluid">
             <Portfolio
               renderEvents={this.renderEvents}
             />
+
           </div>
         </section>
 

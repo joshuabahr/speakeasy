@@ -379,14 +379,15 @@ class EventChat extends Component {
 
   renderUploadPhoto() {
     return (
-      <div className="btnghost2">
-      <input
-        
-        type="file"
-        accept="image/*"
-        multiple="multiple"
-        onChange={(event) => this.handleUpload(event)}
-      />
+      <div className="col-md-2 col-md-offset-5">
+        <input
+          id="photo-upload"
+          className="container"
+          type="file"
+          accept="image/*"
+          multiple="multiple"
+          onChange={(event) => this.handleUpload(event)}
+        />
       </div>
     )
   }
@@ -462,7 +463,6 @@ class EventChat extends Component {
             brand="SPEAKEASY"
           />
 
-
           <section>
             <div className="container content-section">
               <div className="row">
@@ -493,25 +493,18 @@ class EventChat extends Component {
                         onChange={this.handleInputChange}
                         value={this.state.text}
                       />
+                      <div className="chat-buttons">
+                      {this.renderSendButton()}
+                      {this.renderCloseEventButton()}
+                      </div>
                     </Col>
                   </Grid>
                 </ul>
               </div>
             </form>
-          </section>
 
-          <section>
-            <ul className="text-center">
-              <Grid>
-                <Col>
-                  <div className="chat-buttons">
-                    {this.renderSendButton()}
-                    {this.renderCloseEventButton()}
-                    {this.renderUploadPhoto()}
-                  </div>
-                </Col>
-              </Grid>
-            </ul>
+            {this.renderUploadPhoto()}
+
           </section>
 
           <div ref={(el) => this.messagesEnd = el} />

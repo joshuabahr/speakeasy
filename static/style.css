@@ -496,7 +496,7 @@ section {
 input.error,
 .error textarea,
 textarea.error {
-    background-color: #ffffff;
+     background-color: #ffffff; 
     border-bottom: 2px solid orangered !Important;
     -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
     -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
@@ -508,7 +508,7 @@ textarea.error {
 #contactform textarea {
     margin: auto;
     border: 0px;
-    border-bottom: 2px solid #333;
+     border-bottom: 2px solid #333;  
     width: 500px;
     background-color: transparent;
     padding: 20px 0px;
@@ -579,7 +579,6 @@ textarea.error {
     position: relative;
     width: 100%;
     background-color: #fff;
-    /* border: solid 2px red; */
 }
 
 .portfolio {
@@ -684,10 +683,11 @@ textarea.error {
 
 .chat-buttons {
     display: inline;
+     border: none !important; 
 }
 
-.photo-upload {
-    display: inline-block;
+#photo-upload {
+    display: inline; 
     font-family: Open Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100px;
 }
@@ -699,3 +699,5 @@ textarea.error {
     color: #303030;
     font-family: Open Sans, "Helvetica Neue";
 }
+
+

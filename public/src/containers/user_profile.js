@@ -179,7 +179,7 @@ class User_Profile extends Component {
                       component={this.renderField}
                     />
                     <Field
-                      label="Create a chat handle"
+                      label="Your chat handle"
                       name="handle"
                       type="text"
                       placeholder={this.showPlaceHolder('handle')}

@@ -126,11 +126,12 @@ class Home extends Component {
     if (this.props.nearbyEvents.length) {
       events = this.props.nearbyEvents.map((event, idx) => {
         return (
-          <NearbyEventDetail
-            idx={idx}
-            event={event}
-            handleEventClick={this.handleEventClick}
-          />
+            <NearbyEventDetail
+              key={idx}
+              idx={idx}
+              event={event}
+              handleEventClick={this.handleEventClick}
+            />
         )
       })
     }

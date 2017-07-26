@@ -17,7 +17,7 @@ class Header extends Component {
     let text;
 
     if (this.props.text) {
-      text = <p class="intro-text">{this.props.text}</p>;
+      text = <p className="intro-text">{this.props.text}</p>;
     } else {
       text = null;
     }
