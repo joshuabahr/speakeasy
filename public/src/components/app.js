@@ -14,6 +14,7 @@ import EventChat from '../containers/eventChat';
 import Landing_Page from '../containers/landing_page';
 import DMChat from '../containers/dmChat';
 import previousEventPhotos from '../containers/previousEventPhotos';
+import aiChat from '../components/aiChat';
 
 const auth = new Auth();
 const handleAuthentication = (nextState, replace) => {
@@ -104,6 +105,10 @@ export default class App extends Component {
               <Route
                   path="/previouseventphotos"
                   component={previousEventPhotos}
+              />
+              <Route
+                  path="/chatbot"
+                  component={aiChat}
               />
             </Switch>
           </div>

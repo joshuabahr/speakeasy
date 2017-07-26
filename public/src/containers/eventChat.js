@@ -503,7 +503,7 @@ class EventChat extends Component {
               </div>
             </form>
 
-            {this.renderUploadPhoto()}
+             {this.renderUploadPhoto()} 
 
           </section>
 
