@@ -149,21 +149,12 @@ class DMChat extends Component {
                       onChange={this.handleInputChange}
                       value={this.state.text}
                     />
+                    {this.renderSendButton()}
                   </Col>
                 </Grid>
               </ul>
             </div>
           </form>
-        </section>
-
-        <section>
-          <ul className="text-center">
-            <Grid>
-              <Col>
-                {this.renderSendButton()}
-              </Col>
-            </Grid>
-          </ul>
         </section>
 
         <div ref={(el) => this.messagesEnd = el} />

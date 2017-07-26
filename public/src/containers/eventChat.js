@@ -378,16 +378,16 @@ class EventChat extends Component {
   }
 
   renderUploadPhoto() {
-    let upload =
-      <input
-        type="file"
-        accept="image/*"
-        multiple="multiple"
-        onChange={(event) => this.handleUpload(event)}
-      />
     return (
-      <div className="photo-upload container-fluid">
-        <i>{upload}</i>
+      <div className="col-md-2 col-md-offset-5">
+        <input
+          id="photo-upload"
+          className="container"
+          type="file"
+          accept="image/*"
+          multiple="multiple"
+          onChange={(event) => this.handleUpload(event)}
+        />
       </div>
     )
   }
@@ -401,7 +401,7 @@ class EventChat extends Component {
     }
 
     return (
-      <div className="">
+      <div>
         <h2>{msg}</h2>
       </div>
     );
@@ -438,7 +438,7 @@ class EventChat extends Component {
           <section>
             <div className="container content-section text-center">
               <div className="container text-center row col-md-8 col-md-offset-2">
-                <h2>Please EnterPassword:</h2>
+                <h2>Password:</h2>
                 <form onSubmit={this.submitPasswordForm}>
                   <input type="text"
                     name="eventpassword"
@@ -462,7 +462,6 @@ class EventChat extends Component {
           <Header
             brand="SPEAKEASY"
           />
-
 
           <section>
             <div className="container content-section">
@@ -494,30 +493,18 @@ class EventChat extends Component {
                         onChange={this.handleInputChange}
                         value={this.state.text}
                       />
+                      <div className="chat-buttons">
+                      {this.renderSendButton()}
+                      {this.renderCloseEventButton()}
+                      </div>
                     </Col>
                   </Grid>
                 </ul>
               </div>
             </form>
-          </section>
 
-          <section>
-            <ul className="text-center">
-              <Grid>
-                <Col>
-                  {this.renderSendButton()}
-                  {this.renderCloseEventButton()}
-                </Col>
-              </Grid>
-            </ul>
-          </section>
+            {this.renderUploadPhoto()}
 
-          <section>
-            <div className="container content-section text-center">
-              <div className="container text-center row col-md-8 col-md-offset-2 row">
-                {this.renderUploadPhoto()}
-              </div>
-            </div>
           </section>
 
           <div ref={(el) => this.messagesEnd = el} />

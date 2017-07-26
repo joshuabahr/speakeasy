@@ -6,11 +6,32 @@ class Header extends Component {
     let heading;
 
     if (this.props.brand) {
-      heading =  <h1 className="brand-heading">{this.props.brand}</h1>
+      heading = <h1 className="brand-heading">{this.props.brand}</h1>
     } else if (this.props.renderPhoto) {
       heading = this.props.renderPhoto()
     }
     return heading;
+  }
+
+  renderText() {
+    let text;
+
+    if (this.props.text) {
+      text = <p className="intro-text">{this.props.text}</p>;
+    } else {
+      text = null;
+    }
+    return text;
+  }
+
+  renderButton() {
+    let button;
+    if (this.props.button) {
+      button = this.props.button;
+    } else {
+      button = null;
+    }
+    return button;
   }
 
 
@@ -21,7 +42,9 @@ class Header extends Component {
           <div className="container row col-md-8 col-md-offset-2">
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
-                {this.renderHeading()}
+                {this.renderHeading()}<br/>
+                {this.renderText()}
+                {this.renderButton()}
                 <label>{this.props.label}</label>
               </div>
             </div>
