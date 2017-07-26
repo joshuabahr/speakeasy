@@ -174,8 +174,8 @@ a:focus {
     }
     .intro .intro-body .brand-heading {
         font-size: 60px;
-        margin-top: 200px;
-        margin-bottom: 150px;
+        margin-top: 150px;
+        margin-bottom: 100px;
         border-top: 2px solid #fff;
         border-bottom: 2px solid #fff;
         display: inline-block;
@@ -650,7 +650,7 @@ textarea.error {
 }
 
 .btnghost0 {
-    margin: 100px 10px 100px 10px;
+    margin: 40px 10px 100px 10px;
     border: 2px solid #fff;
     background-color: transparent;
     padding: 15px 20px;

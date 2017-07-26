@@ -166,7 +166,6 @@ class Home extends Component {
 
         <Header
           brand="SPEAKEASY"
-          text=""
           button={
             <Link to="/event_setting" className="btnghost0">
               <i className="fa"></i>
