@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/joshuabahr/speakeasy#readme",
   "dependencies": {
+    "api-ai-javascript": "^2.0.0-beta.21",
+    "apiai": "^4.0.3",
     "auth0-js": "^8.8.0",
     "aws-sdk": "^2.84.0",
     "axios": "^0.16.2",
@@ -35,6 +37,7 @@
     "pg": "^6.4.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.1",
+    "react-chat-ui": "0.0.29",
     "react-dom": "^15.6.1",
     "react-dropzone": "^3.13.2",
     "react-geolocated": "^2.0.0",
