@@ -28,29 +28,17 @@ class Landing_Page extends Component {
 
         <Header 
           brand="SPEAKEASY"
-        />
-
-        <section>
-          <div className="container content-section text-center">
-              <div className="row col-lg-8 col-lg-offset-2">
-                <p>
-                  DIY semiotics succulents, put a bird on it tattooed hoodie +1 letterpress woke.
+          text={`DIY semiotics succulents, put a bird on it tattooed hoodie +1 letterpress woke.
               Umami knausgaard hexagon tumblr. Polaroid disrupt sartorial cliche prism retro
               cray bespoke. Authentic salvia kitsch twee literally. Kinfolk locavore YOLO twee
               PBR&B shoreditch echo park. Selfies ugh godard actually, biodiesel cliche pop-up
-              jianbing vape mumblecore tacos chia tote bag taiyaki.
-                </p>
-              </div>
-              <div className="container text-center row col-md-8 col-md-offset-2">
-                <Link to="/" onClick={this.login} className="btnghost">
+              jianbing vape mumblecore tacos chia tote bag taiyaki.`}
+              button={<Link to="/" onClick={this.login} className="btnghost0">
                   <i className="fa"></i>
                   Join the Conversation
-          </Link>
-              </div>
+                </Link>}
+        />
 
-
-          </div>
-        </section>
       </div>
     );
   }

@@ -438,7 +438,7 @@ class EventChat extends Component {
           <section>
             <div className="container content-section text-center">
               <div className="container text-center row col-md-8 col-md-offset-2">
-                <h2>Please EnterPassword:</h2>
+                <h2>Password:</h2>
                 <form onSubmit={this.submitPasswordForm}>
                   <input type="text"
                     name="eventpassword"

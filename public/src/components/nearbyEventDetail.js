@@ -8,7 +8,7 @@ const NearbyEventDetail = ({ event, handleEventClick, idx }) => {
             <li className="col-md-3">
               <Link to="/active_event" onClick={() => handleEventClick(event)}>
                 <img 
-                  src={event.eventPhoto || "https://ak5.picdn.net/shutterstock/videos/22434133/thumb/1.jpg"}  
+                  src={event.eventPhoto || `http://bit.ly/2uC4diw` || `http://unsplash.it/680/380?random=${idx}`}  
                 />
                 <div className="text-center">
                   <p>
@@ -22,4 +22,3 @@ const NearbyEventDetail = ({ event, handleEventClick, idx }) => {
 
 export default NearbyEventDetail
 
-//<img src={`http://unsplash.it/680/380?random=${idx}`} alt="" />

@@ -126,11 +126,11 @@ class Home extends Component {
     if (this.props.nearbyEvents.length) {
       events = this.props.nearbyEvents.map((event, idx) => {
         return (
-              <NearbyEventDetail
-                idx={idx}
-                event={event}
-                handleEventClick={this.handleEventClick}
-              />
+          <NearbyEventDetail
+            idx={idx}
+            event={event}
+            handleEventClick={this.handleEventClick}
+          />
         )
       })
     }
@@ -143,15 +143,19 @@ class Home extends Component {
       msg = 'SEARCHING FOR NEARBY EVENTS...';
     } else {
       if (this.props.nearbyEvents.length) {
-        msg = 'NEARBY EVENTS';
+        msg = 'JOIN A NEARBY EVENT';
       } else {
         msg = 'NO NEARBY EVENTS';
       }
     }
     return (
-      <div className="">
-        <h2>{msg}</h2>
-      </div>
+      <section>
+        <div className="container content-section text-center">
+          <div className="container row col-md-8 col-md-offset-2 text-center">
+            <h2>{msg}</h2>
+          </div>
+        </div>
+      </section>
     );
   }
 
@@ -162,25 +166,26 @@ class Home extends Component {
 
         <Header
           brand="SPEAKEASY"
+          text=""
+          button={
+            <Link to="/event_setting" className="btnghost0">
+              <i className="fa"></i>
+              Host an Event
+            </Link>
+          }
         />
 
-        <section>
-          <div className="container content-section text-center">
-            <div className="container text-center row col-md-8 col-md-offset-2">
-              <Link to="/event_setting" className="btnghost">
-                <i className="fa"></i>
-                Host an Event
-                </Link>
-              {this.renderEventMessage()}
-            </div>
-          </div>
-        </section>
+
+        {this.renderEventMessage()}
+
+
+
         <section>
           <div className="container-fluid">
             <Portfolio
               renderEvents={this.renderEvents}
             />
-            
+
           </div>
         </section>
 
