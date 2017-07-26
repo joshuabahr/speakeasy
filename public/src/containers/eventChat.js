@@ -378,16 +378,15 @@ class EventChat extends Component {
   }
 
   renderUploadPhoto() {
-    let upload =
+    return (
+      <div className="btnghost2">
       <input
+        
         type="file"
         accept="image/*"
         multiple="multiple"
         onChange={(event) => this.handleUpload(event)}
       />
-    return (
-      <div className="photo-upload container-fluid">
-        <i>{upload}</i>
       </div>
     )
   }
@@ -401,7 +400,7 @@ class EventChat extends Component {
     }
 
     return (
-      <div className="">
+      <div>
         <h2>{msg}</h2>
       </div>
     );
@@ -505,9 +504,11 @@ class EventChat extends Component {
             <ul className="text-center">
               <Grid>
                 <Col>
-                  {this.renderSendButton()}
-                  {this.renderCloseEventButton()}
-                  {this.renderUploadPhoto()}
+                  <div className="chat-buttons">
+                    {this.renderSendButton()}
+                    {this.renderCloseEventButton()}
+                    {this.renderUploadPhoto()}
+                  </div>
                 </Col>
               </Grid>
             </ul>

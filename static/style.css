@@ -625,6 +625,44 @@ textarea.error {
     display: block;
 }
 
+.btnghost0 {
+    margin: 60px 10px 300px 10px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 15px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    display: inline-block;
+}
+
+.btnghost0:hover {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+}
+
+.btnghost1 {
+    margin: 40px 10px 100px 10px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 15px 20px;
+    letter-spacing: 3px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #fff;
+    display: inline-block;
+}
+
+.btnghost1:hover {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+}
+
 .btnghost2 {
     margin: 20px 10px 40px 10px;
     border: 2px solid #000;
@@ -644,26 +682,20 @@ textarea.error {
     border: 2px solid #333;
 }
 
+.chat-buttons {
+    display: inline;
+}
+
 .photo-upload {
+    display: inline-block;
     font-family: Open Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100px;
 }
 
-.btnghost0 {
-    margin: 40px 10px 100px 10px;
-    border: 2px solid #fff;
-    background-color: transparent;
-    padding: 15px 20px;
-    letter-spacing: 3px;
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 400;
-    color: #fff;
-    display: inline-block;
-}
-
-.btnghost0:hover {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #000;
+.my-footer {
+    padding-top: 10px;
+    height: 10px;
+    text-size: 15px;
+    color: #303030;
+    font-family: Open Sans, "Helvetica Neue";
 }

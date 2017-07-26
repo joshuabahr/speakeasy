@@ -25,20 +25,18 @@ class Landing_Page extends Component {
   render() {
     return (
       <div>
-
-        <Header 
+        <Header
           brand="SPEAKEASY"
           text={`DIY semiotics succulents, put a bird on it tattooed hoodie +1 letterpress woke.
               Umami knausgaard hexagon tumblr. Polaroid disrupt sartorial cliche prism retro
               cray bespoke. Authentic salvia kitsch twee literally. Kinfolk locavore YOLO twee
               PBR&B shoreditch echo park. Selfies ugh godard actually, biodiesel cliche pop-up
               jianbing vape mumblecore tacos chia tote bag taiyaki.`}
-              button={<Link to="/" onClick={this.login} className="btnghost0">
-                  <i className="fa"></i>
-                  Join the Conversation
+          button={<Link to="/" onClick={this.login} className="btnghost0">
+            <i className="fa"></i>
+            Join the Conversation
                 </Link>}
         />
-
       </div>
     );
   }
