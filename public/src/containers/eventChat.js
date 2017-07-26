@@ -507,17 +507,10 @@ class EventChat extends Component {
                 <Col>
                   {this.renderSendButton()}
                   {this.renderCloseEventButton()}
+                  {this.renderUploadPhoto()}
                 </Col>
               </Grid>
             </ul>
-          </section>
-
-          <section>
-            <div className="container content-section text-center">
-              <div className="container text-center row col-md-8 col-md-offset-2 row">
-                {this.renderUploadPhoto()}
-              </div>
-            </div>
           </section>
 
           <div ref={(el) => this.messagesEnd = el} />
