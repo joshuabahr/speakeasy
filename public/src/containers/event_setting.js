@@ -58,10 +58,10 @@ class Event_Setting extends Component {
         <div className="dropzone text-center center-block">
           <Dropzone onDrop={this.onDrop} accept="image/jpeg, image/png" className="center-block">
             <img
-              src={this.state.tempEventProfilePicture || 'http://bit.ly/2toy1xv'}
+              src={this.state.tempEventProfilePicture || `http://bit.ly/2uC4diw` || `http://unsplash.it/680/380?random=${idx}`}
               className="img-rounded img-responsive center-block profile-pic"
-              width="608"
-              height="472"
+              width="400"
+              height="312"
             />
           </Dropzone>
         </div>
@@ -174,8 +174,8 @@ class Event_Setting extends Component {
                 <Grid>
                   <Col>
                     <Field
-                      label="EventName"
-                      name="Event Name"
+                      label="Event Name"
+                      name="eventname"
                       type="text"
                       component={this.renderField}
                     />

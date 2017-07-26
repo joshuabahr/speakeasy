@@ -35,8 +35,8 @@ class User_Profile extends Component {
             <img
               src={this.props.profile.photo}
               className="img-rounded img-responsive center-block profile-pic"
-              width="456"
-              height="708"
+              width="400"
+              height="312"
             />
           </Dropzone>
         </div>

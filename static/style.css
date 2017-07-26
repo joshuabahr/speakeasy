@@ -687,7 +687,6 @@ textarea.error {
 }
 
 #photo-upload {
-    display: inline; 
     font-family: Open Sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100px;
 }

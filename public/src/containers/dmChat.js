@@ -116,7 +116,6 @@ class DMChat extends Component {
       <button
         className="btnghost2"
         onClick={this.handleSendClick}>
-        <i className="fa"></i>
         Send
       </button>
     return send;

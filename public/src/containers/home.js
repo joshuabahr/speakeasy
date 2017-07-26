@@ -161,7 +161,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log("this.props:::", this.props);
     return (
       <div>
 
@@ -169,7 +168,6 @@ class Home extends Component {
           brand="SPEAKEASY"
           button={
             <Link to="/event_setting" className="btnghost1">
-              <i className="fa"></i>
               Host an Event
             </Link>
           }
