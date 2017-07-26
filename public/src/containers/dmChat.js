@@ -66,7 +66,6 @@ class DMChat extends Component {
     this.setState({
       text: ''
     })
-    console.log("this.state.text::", this.state.text);
   }
 
   handleKeyPress(event) {
@@ -89,7 +88,6 @@ class DMChat extends Component {
       dm_id: this.props.dmRoom.dm_id,
       user_name: this.props.user_name
     })
-    console.log(this.props.messages)
   }
 
   _handleLogOut() {
@@ -116,7 +114,6 @@ class DMChat extends Component {
       <button
         className="btnghost2"
         onClick={this.handleSendClick}>
-        <i className="fa"></i>
         Send
       </button>
     return send;

@@ -18,24 +18,24 @@ class Landing_Page extends Component {
   }
 
   login() {
-    console.log('clicked login');
     auth.login();
   }
 
   render() {
+    let text = `The people around you have something to say
+                Speakeasy will help you start the conversation`
+
     return (
+      
       <div>
         <Header
           brand="SPEAKEASY"
-          text={`DIY semiotics succulents, put a bird on it tattooed hoodie +1 letterpress woke.
-              Umami knausgaard hexagon tumblr. Polaroid disrupt sartorial cliche prism retro
-              cray bespoke. Authentic salvia kitsch twee literally. Kinfolk locavore YOLO twee
-              PBR&B shoreditch echo park. Selfies ugh godard actually, biodiesel cliche pop-up
-              jianbing vape mumblecore tacos chia tote bag taiyaki.`}
-          button={<Link to="/" onClick={this.login} className="btnghost0">
-            <i className="fa"></i>
-            Join the Conversation
-                </Link>}
+          text={text}
+          button={
+              <Link to="/" onClick={this.login} className="btnghost0">
+              Join in
+              </Link>
+            }
         />
       </div>
     );

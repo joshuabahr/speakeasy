@@ -42,7 +42,6 @@ class Event_Setting extends Component {
   getEventLocation() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log('geolocation.coords:', position.latitude, position.longitude);
         this.setState({
           currentEventLocation: [position.coords.latitude, position.coords.longitude]
         })
@@ -58,10 +57,10 @@ class Event_Setting extends Component {
         <div className="dropzone text-center center-block">
           <Dropzone onDrop={this.onDrop} accept="image/jpeg, image/png" className="center-block">
             <img
-              src={this.state.tempEventProfilePicture || 'http://bit.ly/2toy1xv'}
+              src={this.state.tempEventProfilePicture || `http://bit.ly/2uC4diw` || `http://unsplash.it/680/380?random=${idx}`}
               className="img-rounded img-responsive center-block profile-pic"
-              width="608"
-              height="472"
+              width="400"
+              height="312"
             />
           </Dropzone>
         </div>
@@ -91,7 +90,6 @@ class Event_Setting extends Component {
     this.setState({
       eventPicture: acceptedFile[0]
     }, () => {
-      console.log("eventPicture before this.upload()", this.state.eventPicture)
       this.upload();
     })
   }
@@ -109,7 +107,6 @@ class Event_Setting extends Component {
             .then((awsResponse) => {
               counter++;
               this.registerImageUrl(eachFile);
-              console.log("no error in axios.post, response is ", awsResponse);
             })
           counter++;
         })
@@ -174,8 +171,8 @@ class Event_Setting extends Component {
                 <Grid>
                   <Col>
                     <Field
-                      label="EventName"
-                      name="Event Name"
+                      label="Event Name"
+                      name="eventname"
                       type="text"
                       component={this.renderField}
                     />

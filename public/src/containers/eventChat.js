@@ -56,6 +56,7 @@ class EventChat extends Component {
 
   componentDidMount() {
     this._handleLogIn()
+    this._handleClosedEvent()
     this._handleRecentMessages()
     this._handleRefreshMessages()
     this.setShowForm()
@@ -209,7 +210,7 @@ class EventChat extends Component {
   handleCloseClick(event) {
     event.preventDefault()
     socket.emit('closeevent', { event_id: this.props.event.id });
-    axios.put('/api/crosspath/', { eventId: this.props.event.id })
+    axios.put('/api/crosspath', { eventId: this.props.event.id })
       .then(() => {
         axios.put('/api/event/close', { event_id: this.props.event.id })
           .then(() => {
@@ -242,7 +243,6 @@ class EventChat extends Component {
       event_id: this.props.event.id,
       user_name: this.props.user_name
     });
-    console.log(this.props.messages);
   }
 
   _handleLogOut() {
@@ -351,7 +351,6 @@ class EventChat extends Component {
       <button
         className="btnghost2"
         onClick={this.handleSendClick}>
-        <i className="fa"></i>
         Send
       </button>
     return send;
@@ -363,7 +362,6 @@ class EventChat extends Component {
         className="btnghost2"
         type="submit"
         value="Submit">
-        <i className="fa"></i>
         Submit
       </button>
     return send;
@@ -379,15 +377,19 @@ class EventChat extends Component {
 
   renderUploadPhoto() {
     return (
-      <div className="col-md-2 col-md-offset-5">
-        <input
-          id="photo-upload"
-          className="container"
-          type="file"
-          accept="image/*"
-          multiple="multiple"
-          onChange={(event) => this.handleUpload(event)}
-        />
+      <div className="container-fluid">
+        <Grid>
+          <Col>
+            <input
+              id="photo-upload"
+              className="container"
+              type="file"
+              accept="image/*"
+              multiple="multiple"
+              onChange={(event) => this.handleUpload(event)}
+            />
+          </Col>
+        </Grid>
       </div>
     )
   }
@@ -408,8 +410,6 @@ class EventChat extends Component {
   }
 
   render() {
-    console.log(this.props, this.props);
-
     if (this.state.closed === true) {
       return (
         <Redirect to='/home' />
@@ -494,8 +494,8 @@ class EventChat extends Component {
                         value={this.state.text}
                       />
                       <div className="chat-buttons">
-                      {this.renderSendButton()}
-                      {this.renderCloseEventButton()}
+                        {this.renderSendButton()}
+                        {this.renderCloseEventButton()}
                       </div>
                     </Col>
                   </Grid>
@@ -503,10 +503,10 @@ class EventChat extends Component {
               </div>
             </form>
 
-            {this.renderUploadPhoto()}
 
+          {this.renderUploadPhoto()}
           </section>
-
+          
           <div ref={(el) => this.messagesEnd = el} />
 
         </div >

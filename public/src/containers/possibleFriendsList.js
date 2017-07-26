@@ -10,6 +10,7 @@ import { clearDirectMessages } from './../actions/directMessagesActions'
 import Header from '../components/header'
 
 
+
 class PossibleFriendsList extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +36,6 @@ class PossibleFriendsList extends Component {
       })
         .then((response) => {
           let dm_id = response.data.room.id;
-          console.log('friend click response: ', dm_id)
           this.props.createDMRoom(friend.user_to_name, dm_id)
         })
         .then(() => {
@@ -66,20 +66,17 @@ class PossibleFriendsList extends Component {
     let msg;
 
     if (this.props.possibleFriends.length) {
-      msg = "YOUR FRIENDS"
+      msg = "Your friends..."
     } else {
-      msg = "YOU HAVE NO POSSIBLE FRIENDS"
+      msg = "Don't worry, you'll have friends soon"
     }
 
     return (
-      <div className="">
         <h2>{msg}</h2>
-      </div>
     );
   }
 
   render() {
-    console.log('this.props from possible friends:', this.props);
 
     if (this.state.dm === true) {
       return (
@@ -101,7 +98,7 @@ class PossibleFriendsList extends Component {
             <div className="row">
               <div className="container text-center row col-md-8 col-md-offset-2">
                   {this.renderMessage()}
-                  <p style={listStyle}>{this.renderFriends()}</p>
+                  <div style={listStyle}>{this.renderFriends()}</div>
               </div>
             </div>
           </div>

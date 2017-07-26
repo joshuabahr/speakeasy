@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 const DMRoomDetail = ({ room, handleRoomClick }) => {
   return (
 
-      <div className="my-list" onClick={() => handleRoomClick(room)}>
-        <li>
+      <div onClick={() => handleRoomClick(room)}>
+        <li className="my-list">
           {room.user_to_name}
         </li>
         <br></br>

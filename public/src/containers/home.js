@@ -113,7 +113,6 @@ class Home extends Component {
       "features": [from, to]
     };
     var distance = turf(from, to, "miles");
-    // console.log("distance between two points", distance);
     return distance < 0.5;
   }
 
@@ -141,12 +140,12 @@ class Home extends Component {
   renderEventMessage() {
     let msg;
     if (this.state.gettingUserLocation) {
-      msg = 'SEARCHING FOR NEARBY EVENTS...';
+      msg = 'Searching for nearby events...';
     } else {
       if (this.props.nearbyEvents.length) {
-        msg = 'JOIN A NEARBY EVENT';
+        msg = 'Join a nearby event!';
       } else {
-        msg = 'NO NEARBY EVENTS';
+        msg = 'Sorry, no nearby events';
       }
     }
     return (
@@ -161,7 +160,6 @@ class Home extends Component {
   }
 
   render() {
-    console.log("this.props:::", this.props);
     return (
       <div>
 
@@ -169,7 +167,6 @@ class Home extends Component {
           brand="SPEAKEASY"
           button={
             <Link to="/event_setting" className="btnghost1">
-              <i className="fa"></i>
               Host an Event
             </Link>
           }

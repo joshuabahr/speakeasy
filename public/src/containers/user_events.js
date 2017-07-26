@@ -60,9 +60,9 @@ class User_Events extends Component {
     let msg;
 
     if (this.state.userEvents.length) {
-      msg = 'PREVIOUS EVENTS';
+      msg = 'Your previous events...';
     } else {
-      msg = 'YOU HAVE\'NT BEEN TO ANY EVENTS YET!';
+      msg = 'You haven\'t been to any event yet!';
     }
 
     return (
