@@ -43,11 +43,11 @@ class User_Events extends Component {
     if (this.state.userEvents.length) {
       events = this.state.userEvents.map((event, idx) => {
         return (
-            <div className="col-md-3 col-centered">
+            <div className="col-md-3 col-centered text-center">
               <Link to="/previouseventphotos"
               onClick={() => this.handlePreviousEventPhotos(event)}>
-                <img src={event.event.eventPhoto || `http://unsplash.it/680/380?random=${idx}`} />
-                  <p>{event.event.eventName}</p>
+                <img src={event.event.eventPhoto || `http://bit.ly/2uC4diw` || `http://unsplash.it/680/380?random=${idx}`}/>
+                  <p className="text-center">{event.event.eventName}</p>
               </Link>
             </div>
         )
