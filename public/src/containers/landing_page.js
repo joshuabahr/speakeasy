@@ -22,7 +22,7 @@ class Landing_Page extends Component {
   }
 
   render() {
-    let text = `The people around you have something to say
+    let text = `The people around you have a lot to say
                 Speakeasy will help you start the conversation`
 
     return (
