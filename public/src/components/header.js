@@ -17,7 +17,18 @@ class Header extends Component {
     let text;
 
     if (this.props.text) {
-      text = <p className="intro-text">{this.props.text}</p>;
+      text = <p id="intro-fix" className="intro-text">{this.props.text}</p>;
+    } else {
+      text = null;
+    }
+    return text;
+  }
+
+  renderText2() {
+    let text;
+
+    if (this.props.text) {
+      text = <p id="intro-fix" className="intro-text">{this.props.text2}</p>;
     } else {
       text = null;
     }
@@ -42,8 +53,9 @@ class Header extends Component {
           <div className="container row col-md-8 col-md-offset-2">
             <div className="row">
               <div className="col-md-8 col-md-offset-2">
-                {this.renderHeading()}<br/>
+                {this.renderHeading()}<br />
                 {this.renderText()}
+                {this.renderText2()}
                 {this.renderButton()}
                 <label>{this.props.label}</label>
               </div>

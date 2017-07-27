@@ -22,8 +22,9 @@ class Landing_Page extends Component {
   }
 
   render() {
-    let text = `The people around you have a lot to say
-                Speakeasy will help you start the conversation`
+    let text = `The people around you have a lot to say`
+    let text2 = `Speakeasy will help you start the conversation`
+
 
     return (
       
@@ -31,6 +32,7 @@ class Landing_Page extends Component {
         <Header
           brand="SPEAKEASY"
           text={text}
+          text2={text2}
           button={
               <Link to="/" onClick={this.login} className="btnghost0">
               Join in
