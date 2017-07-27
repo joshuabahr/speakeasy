@@ -7,14 +7,13 @@ const Dummy = require('./dummy');
 
 //-------------CHANGE THIS TO *TRUE* ONLY WHEN YOU WANT TO DROP YOUR DB-----------//
 //                                                                               //
-const dropDB = true;   
+const dropDB = false;   
 //                                                                            //
 //                                                                           //
 //--------------------------------------------------------------------------//
 
 const init = () => {
-  let syncObj = firstTime ? { force: true } : null;
-  let dummy = loadDummyData ? {} : null;
+  let syncObj = dropDB ? { force: true } : null;
 
   mongoConfig();
 
