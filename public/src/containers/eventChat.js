@@ -73,7 +73,7 @@ class EventChat extends Component {
   }
 
   scrollToBottom() {
-    // this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+    this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
   }
 
   handleInputChange(e) {
