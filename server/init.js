@@ -5,14 +5,16 @@ const mongoConfig = require('./db/mongodb');
 const Table = require('./models/tableModels');
 const Dummy = require('./dummy');
 
-//-------------CHANGE THIS TO *TRUE* ONLY WHEN YOU WANT TO REDO YOUR DB---------//
-//                                                                             //
-const firstTime = false;                                                      //
+//-------------CHANGE THIS TO *TRUE* ONLY WHEN YOU WANT TO DROP YOUR DB-----------//
+//                                                                               //
+const dropDB = false;   
+//                                                                            //
 //                                                                           //
 //--------------------------------------------------------------------------//
 
 const init = () => {
-  let syncObj = firstTime ? { force: true } : null;
+  let syncObj = dropDB ? { force: true } : null;
+
   mongoConfig();
 
   return (
