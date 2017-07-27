@@ -13,7 +13,7 @@ const socketEvents = (io) => {
       Message.find({ event_id: event.event_id })
         .select('createdAt images text user_name event_id user_id _id')
         .sort('-createdAt')
-        .limit(7)
+        .limit(25)
         .exec((err, messages) => {
           if (err) console.error('error getting recent messages ', err);
           io.sockets.in(event.event_id).emit('recentmessages', messages);
@@ -56,7 +56,7 @@ const socketEvents = (io) => {
       DirectMessage.find({ dm_id: dmroom.dm_id })
         .select('createdAt user_from_name text dm_id _id')
         .sort('-createdAt')
-        .limit(7)
+        .limit(25)
         .exec((err, dms) => {
           if (err) console.error('error getting recent dms ', err);
           io.sockets.in(dmroom.dm_id).emit('recentdms', dms);
