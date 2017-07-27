@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const ChatDetail = ({ message, dmClick }) => {
   let nameStyle = { margin: 0, paddingLeft: '5px', fontWeight: 'bold', fontSize: '14px' }
   let msgStyle = { margin: 0, paddingLeft: '5px', fontStyle: 'italic', fontSize: '14px' }
-  console.log('N: message', message)
 
   return (
     <div id="contactform">
