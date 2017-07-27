@@ -1,48 +1,39 @@
-var path = require('path');
-var webpack = require('webpack');
- 
+const path = require('path');
+
+const SRC_DIR = path.resolve(__dirname, 'public');
+const BUILD_DIR = path.resolve(__dirname, 'static');
+
 module.exports = {
-  devtool: 'eval-source-map',
-  entry: [
-    'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/dev-server',
-    './public/index.js'
-  ],
+  entry: path.resolve(SRC_DIR, 'index.js'),
   output: {
-    path: path.join(__dirname, '/static/'),
     filename: 'bundle.js',
-    publicPath: '/static'
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
-  devServer: {
-    historyApiFallback: true
+    path: BUILD_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-        query: {
-          presets: ["es2015", "react", "react-hmre", "stage-0"],
-          plugins: [
-            'react-hot-loader/babel'
-          ]
-        }
-      }, 
-      {
-        test: /\.json?$/,
-        loader: 'json'
+        test: /\.(js|jsx)$/,
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+          options: { presets: ['es2015', 'react', 'stage-0'] }
+        }],
       },
       {
-        test: /\.scss$/,
-        loader: 'style!css!sass?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+      {
+            test   : /\.css$/,
+            loader : 'style-loader!css-loader'
+      },
+      {
+            test   : /\.(png|jpg)$/,
+            loader : 'url-loader?limit=8192'
+      }, {
+          test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+          loader : 'file-loader'
+      }
     ]
   }
-};
+}

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const mongoConfig = () => {
   mongoose.Promise = global.Promise;
-  mongoose.connect('mongodb://localhost/speakeasy');
+  mongoose.connect(process.env.MONGO_DBURL);
   mongoose.connection
     .once('open', () => {
       console.log('mongoose is running')
