@@ -30,7 +30,6 @@ router.post('/user/signup', userController.signupUser);
 
 router.get('/user/profile/:userId', userController.fetchUserProfile); //nate
 router.put('/user/profile/:userId', userController.editUserProfile); //nate
-// router.get('/user/fetchSuggestedFriends', userController.fetchSuggestedFriends) //Michael
 
 
 router.post('/event/create', eventController.createEvent);

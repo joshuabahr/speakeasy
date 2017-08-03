@@ -20,8 +20,6 @@
   },
   "homepage": "https://github.com/joshuabahr/speakeasy#readme",
   "dependencies": {
-    "api-ai-javascript": "^2.0.0-beta.21",
-    "apiai": "^4.0.3",
     "auth0-js": "^8.8.0",
     "aws-sdk": "^2.84.0",
     "axios": "^0.16.2",
