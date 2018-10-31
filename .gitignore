@@ -5,7 +5,8 @@ node_modules
 *.env
 .vscode
 config.js
-auth0-variables.js
+public/src/Auth0/Auth0-variables.js
+public/src/Auth0/auth0-variables.js
 configJwt.js
 aws.config.js
 aws.config

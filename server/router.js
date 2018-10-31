@@ -8,12 +8,12 @@ const dmController = require('./controllers/dmController');
 const crossPathController = require('./controllers/crossPathController');
 const friendsController = require('./controllers/friendsController');
 
-const config = require('../configJwt');
+/* const config = require('../configJwt');
 const jwt = require('express-jwt');
 const authCheck = jwt({
   secret: new Buffer(config.secret),
   audience: config.audience
-});
+}); */
 
 router.get('/message/:eventId', mongoController.fetchMessagesForEvent);
 router.post('/message/', mongoController.postMessageToEvent);
@@ -31,11 +31,10 @@ router.post('/user/signup', userController.signupUser);
 router.get('/user/profile/:userId', userController.fetchUserProfile); //nate
 router.put('/user/profile/:userId', userController.editUserProfile); //nate
 
-
 router.post('/event/create', eventController.createEvent);
 router.post('/event/joinevent', eventController.joinEvent);
 router.get('/event/fetchuserevents/:userId', eventController.fetchUserEvents);
-router.get('/event/searchevents', eventController.searchEvents)
+router.get('/event/searchevents', eventController.searchEvents);
 router.put('/event/close', eventController.closeEvent);
 
 router.put('/crosspath', crossPathController.crossPathUpdate);
@@ -43,18 +42,13 @@ router.put('/crosspath', crossPathController.crossPathUpdate);
 router.get('/friendsuggestion/:userId', friendsController.fetchPossibleFriends);
 router.put('/friend/chat', friendsController.updateChatting);
 
-
 //photo uploading
-router.post('/user/profile/:userId/geturl', imageController.getUrl) //nate
+router.post('/user/profile/:userId/geturl', imageController.getUrl); //nate
 router.post('/event/image/upload/geturl', imageController.getUrl);
 router.post('/event/image/upload', imageController.upload);
 router.get('/event/image/fetcheventimages/:eventId', imageController.fetchEventImages);
 router.get('/event/image/fetchusereventimages/:userId/:eventId', imageController.fetchUserEventImages);
 
-
 router.post('/screenshot', imageController.screenshot);
-
-
-
 
 module.exports = router;
