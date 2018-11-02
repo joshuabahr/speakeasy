@@ -1,12 +1,12 @@
 const Table = require('../models/tableModels');
 const existed = { status: 'already exists' };
 
-const env = require('../../aws.config');
+// const env = require('../../aws.config');
 const AWS = require('aws-sdk');
 AWS.config = new AWS.Config();
 AWS.config.region = 'us-west-1';
-AWS.config.accessKeyId = env.AWS_ACCESS_KEY;
-AWS.config.secretAccessKey = env.AWS_SECRET_ACCESS_KEY;
+AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY;
+AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 
 const getUrl = (req, res) => {
   const s3 = new AWS.S3({
@@ -17,19 +17,21 @@ const getUrl = (req, res) => {
 
   for (let image in images) {
     let s3_params = {
-      Bucket: env.BUCKET,
+      Bucket: process.env.S3_BUCKET,
       Key: images[image],
       Expires: 250
     };
     s3.getSignedUrl('putObject', s3_params, function(error, signedUrl) {
       if (error) {
         console.log(error);
+      } else {
+        console.log('signed url ', signedUrl);
+        signedUrlList.push({ fileName: images[image], url: signedUrl });
+        console.log('signedurllist', signedUrlList);
+        res.status(201).send(signedUrlList);
       }
-      signedUrlList.push({ fileName: images[image], url: signedUrl });
     });
   }
-
-  res.status(201).send(signedUrlList);
 };
 
 const upload = (req, res) => {
@@ -90,7 +92,7 @@ const screenshot = (req, res) => {
   var data = req.body.image.replace(/^data:image\/\w+;base64,/, '');
   var buf = new Buffer(data, 'base64');
   let s3_params = {
-    Bucket: env.BUCKET,
+    Bucket: process.env.S3_BUCKET,
     Key: req.body.fileName,
     Body: buf,
     Expires: 250

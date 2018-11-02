@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
-const config = require('../../config');
+// const config = require('../../config');
 
 const mongoConfig = () => {
   mongoose.Promise = global.Promise;
-  mongoose.connect(config.mongoUrl);
+  mongoose.connect(process.env.MONGOURL);
   mongoose.connection
     .once('open', () => {
       console.log('mongoose is running');

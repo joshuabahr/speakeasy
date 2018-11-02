@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -6,6 +7,7 @@ const cors = require('cors');
 const router = require('./router');
 const init = require('./init');
 const socketEvents = require('./socket/socketEvents');
+
 const port = 3000;
 const app = express();
 const server = require('http').Server(app);

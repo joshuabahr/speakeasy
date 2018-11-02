@@ -5433,7 +5433,7 @@ var Auth = function () {
   }, {
     key: 'isAuthenticated',
     value: function isAuthenticated() {
-      // Check whether the current time is past the 
+      // Check whether the current time is past the
       // access token's expiry time
       var expiresAt = JSON.parse(localStorage.getItem('expires_at'));
       return new Date().getTime() < expiresAt;
@@ -70047,15 +70047,19 @@ var EventChat = function (_Component) {
       var _this2 = this;
 
       event.preventDefault();
+      console.log('this.state.files', this.state.files);
+      console.log('hello?');
       if (this.state.text !== '') {
         if (this.state.files.length !== 0) {
           var images = {};
           var imageLink = {};
           var text = this.state.text;
           this.state.files.map(function (file, index) {
-            images[index] = Math.floor(Math.random() * 100000) + file.name, imageLink[index] = 'https://s3-us-west-1.amazonaws.com/hrlaspeakeasy/' + images[index];
+            images[index] = Math.floor(Math.random() * 100000) + file.name, imageLink[index] = 'https://s3-us-west-1.amazonaws.com/mutt-match/' + images[index];
           });
+          console.log('images and links ', images, imageLink);
           _axios2.default.post('/api/event/image/upload/geturl', images).then(function (response) {
+            console.log('image upload response ', response);
             response.data.map(function (eachFile, index) {
               _this2.registerImageUrl(eachFile);
               _axios2.default.put(eachFile.url, _this2.state.files[index]).then(function () {
@@ -70085,7 +70089,7 @@ var EventChat = function (_Component) {
             text: '',
             isInput: true
           });
-        };
+        }
       } else {
         this.setState({
           isInput: false
@@ -70097,7 +70101,7 @@ var EventChat = function (_Component) {
     value: function registerImageUrl(eachFile) {
       var imageData = {
         name: eachFile.fileName,
-        imageLink: 'https://s3-us-west-1.amazonaws.com/hrlaspeakeasy/' + eachFile.fileName,
+        imageLink: 'https://s3-us-west-1.amazonaws.com/mutt-match/' + eachFile.fileName,
         userId: this.props.user_id,
         eventId: this.props.event.id
       };
@@ -70117,7 +70121,7 @@ var EventChat = function (_Component) {
             var imageLink = {};
             var text = this.state.text;
             this.state.files.map(function (file, index) {
-              images[index] = Math.floor(Math.random() * 100000) + file.name, imageLink[index] = 'https://s3-us-west-1.amazonaws.com/hrlaspeakeasy/' + images[index];
+              images[index] = Math.floor(Math.random() * 100000) + file.name, imageLink[index] = 'https://s3-us-west-1.amazonaws.com/mutt-match/' + images[index];
             });
             _axios2.default.post('/api/event/image/upload/geturl', images).then(function (response) {
               response.data.map(function (eachFile, index) {
@@ -70277,7 +70281,7 @@ var EventChat = function (_Component) {
       if (this.state.passwordInput === this.props.event.password) {
         this.setState({ showChat: true, showPasswordInput: false });
       } else {
-        alert("wrong password");
+        alert('wrong password');
       }
     }
   }, {
@@ -70307,12 +70311,9 @@ var EventChat = function (_Component) {
     value: function renderCloseEventButton() {
       var closeEvent = void 0;
       if (this.props.user_id === this.props.event.userId) {
-
         closeEvent = _react2.default.createElement(
           'button',
-          {
-            className: 'btnghost2',
-            onClick: this.handleCloseClick },
+          { className: 'btnghost2', onClick: this.handleCloseClick },
           _react2.default.createElement('i', { className: 'fa' }),
           'Close'
         );
@@ -70326,9 +70327,7 @@ var EventChat = function (_Component) {
     value: function renderSendButton() {
       var send = _react2.default.createElement(
         'button',
-        {
-          className: 'btnghost2',
-          onClick: this.handleSendClick },
+        { className: 'btnghost2', onClick: this.handleSendClick },
         'Send'
       );
       return send;
@@ -70338,10 +70337,7 @@ var EventChat = function (_Component) {
     value: function renderPasswordButton() {
       var send = _react2.default.createElement(
         'button',
-        {
-          className: 'btnghost2',
-          type: 'submit',
-          value: 'Submit' },
+        { className: 'btnghost2', type: 'submit', value: 'Submit' },
         'Submit'
       );
       return send;
@@ -70428,9 +70424,7 @@ var EventChat = function (_Component) {
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_header2.default, {
-            brand: 'SPEAKEASY'
-          }),
+          _react2.default.createElement(_header2.default, { brand: 'SPEAKEASY' }),
           _react2.default.createElement(
             'section',
             null,
@@ -70448,7 +70442,8 @@ var EventChat = function (_Component) {
                 _react2.default.createElement(
                   'form',
                   { onSubmit: this.submitPasswordForm },
-                  _react2.default.createElement('input', { type: 'text',
+                  _react2.default.createElement('input', {
+                    type: 'text',
                     name: 'eventpassword',
                     value: this.state.passwordInput,
                     onChange: this.handlePasswordChange
@@ -70468,9 +70463,7 @@ var EventChat = function (_Component) {
         return _react2.default.createElement(
           'div',
           null,
-          _react2.default.createElement(_header2.default, {
-            brand: 'SPEAKEASY'
-          }),
+          _react2.default.createElement(_header2.default, { brand: 'SPEAKEASY' }),
           _react2.default.createElement(
             'section',
             null,
@@ -70491,10 +70484,7 @@ var EventChat = function (_Component) {
           _react2.default.createElement(
             'section',
             { id: 'contact' },
-            _react2.default.createElement(_chatLog2.default, {
-              roomMessages: this.props.messages,
-              dmClick: this.handleDMClick
-            })
+            _react2.default.createElement(_chatLog2.default, { roomMessages: this.props.messages, dmClick: this.handleDMClick })
           ),
           _react2.default.createElement(
             'section',
