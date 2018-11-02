@@ -1,39 +1,65 @@
 const path = require('path');
+const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const dotenv = require('dotenv');
 
-const SRC_DIR = path.resolve(__dirname, 'public');
-const BUILD_DIR = path.resolve(__dirname, 'static');
+module.exports = () => {
+  const env = dotenv.config().parsed;
 
-module.exports = {
-  entry: path.resolve(SRC_DIR, 'index.js'),
-  output: {
-    filename: 'bundle.js',
-    path: BUILD_DIR
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: [/node_modules/],
-        use: [{
-          loader: 'babel-loader',
-          options: { presets: ['es2015', 'react', 'stage-0'] }
-        }],
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      },
-      {
-            test   : /\.css$/,
-            loader : 'style-loader!css-loader'
-      },
-      {
-            test   : /\.(png|jpg)$/,
-            loader : 'url-loader?limit=8192'
-      }, {
-          test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-          loader : 'file-loader'
-      }
-    ]
-  }
-}
+  const envKeys = Object.keys(env).reduce(
+    (prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    },
+    { 'process.env.NODE_ENV': JSON.stringify('production') }
+  );
+
+  return {
+    mode: 'production',
+    context: __dirname,
+    entry: ['./public/index.js'],
+    devtool: 'source-map',
+    output: {
+      path: path.join(__dirname, 'static'),
+      filename: 'bundle.js'
+    },
+    resolve: {
+      extensions: ['.webpack-loader.js', '.web-loader.js', '.loader.js', '.js', '.jsx', '.json'],
+      modules: [path.resolve(__dirname, 'node_modules')]
+    },
+    plugins: [
+      new webpack.DefinePlugin(envKeys),
+      new webpack.optimize.ModuleConcatenationPlugin(),
+      new webpack.HashedModuleIdsPlugin(),
+      new CompressionPlugin({
+        filename: '[path].gz[query]',
+        algorithm: 'gzip',
+        test: /\.(js|css)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+        deleteOriginalAssets: true
+      })
+    ],
+    optimization: {
+      minimizer: [new UglifyJsPlugin()]
+    },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.css$/,
+          use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+        },
+        {
+          test: /\.(png|jpg)$/,
+          loader: 'url-loader?limit=8192'
+        }
+      ]
+    }
+  };
+};

@@ -10,3 +10,5 @@ public/src/Auth0/auth0-variables.js
 configJwt.js
 aws.config.js
 aws.config
+static/bundle.js.gz
+static/bundle.js
