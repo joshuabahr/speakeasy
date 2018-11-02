@@ -2,6 +2,8 @@ import history from '../history';
 import auth0 from 'auth0-js';
 // import { AUTH_CONFIG } from './auth0-variables';
 
+// will this show up
+
 export default class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
