@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import Callback from '../Auth0/Callback';
-import Auth from '../Auth0/auth0';
+import Auth from '../Auth0/Auth0';
 
 import Navigation_Bar from '../containers/navigation_bar';
 import User_Profile from '../containers/user_profile';
