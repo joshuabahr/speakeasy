@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import Callback from '../Auth0/Callback';
-import Auth from '../Auth0/Auth0';
+import Auth from '../Auth0/auth0';
 
 import Navigation_Bar from '../containers/navigation_bar';
 import User_Profile from '../containers/user_profile';
@@ -24,23 +24,25 @@ const handleAuthentication = (nextState, replace) => {
 
 function protectPath(comp) {
   return;
-  props => !auth.isAuthenticated()
-    ? <Redirect to="/" />
-    : <comp auth={auth} {...props} />;
+  props => (!auth.isAuthenticated() ? <Redirect to="/" /> : <comp auth={auth} {...props} />);
 }
 
 function renderNavBar() {
-  return ((auth.isAuthenticated())
-    ? <div><Navigation_Bar /></div>
-    : <div className="navbar"></div>);
+  return auth.isAuthenticated() ? (
+    <div>
+      <Navigation_Bar />
+    </div>
+  ) : (
+    <div className="navbar" />
+  );
 }
 
 function renderFooter() {
   return (
     <div className="text-center my-footer">
-        <i>Created by JMNI at Hack Reactor</i>
+      <i>Created by JMNI at Hack Reactor</i>
     </div>
-  )
+  );
 }
 
 export default class App extends Component {
@@ -56,62 +58,62 @@ export default class App extends Component {
                 path="/"
                 render={props => {
                   return <Landing_Page {...props} />;
-                }} />
+                }}
+              />
               <Route
                 exact
                 path="/callback"
                 render={props => {
                   handleAuthentication(props);
                   return <Callback {...props} />;
-                }} />
+                }}
+              />
               <Route
                 path="/home"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <Home auth={auth} {...props} />} />
+                render={props => (!auth.isAuthenticated() ? <Redirect to="/" /> : <Home auth={auth} {...props} />)}
+              />
               <Route
                 path="/friends"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <PossibleFriendsList auth={auth} {...props} />} />
+                render={props =>
+                  !auth.isAuthenticated() ? <Redirect to="/" /> : <PossibleFriendsList auth={auth} {...props} />
+                }
+              />
               <Route
                 path="/dm"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <DirectMessageList auth={auth} {...props} />} />
+                render={props =>
+                  !auth.isAuthenticated() ? <Redirect to="/" /> : <DirectMessageList auth={auth} {...props} />
+                }
+              />
               <Route
                 path="/past"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <User_Events auth={auth} {...props} />} />
+                render={props =>
+                  !auth.isAuthenticated() ? <Redirect to="/" /> : <User_Events auth={auth} {...props} />
+                }
+              />
 
               <Route
                 path="/profile"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <User_Profile auth={auth} {...props} />} />
+                render={props =>
+                  !auth.isAuthenticated() ? <Redirect to="/" /> : <User_Profile auth={auth} {...props} />
+                }
+              />
               <Route
                 path="/event_setting"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <Event_Setting auth={auth} {...props} />} />
+                render={props =>
+                  !auth.isAuthenticated() ? <Redirect to="/" /> : <Event_Setting auth={auth} {...props} />
+                }
+              />
               <Route
                 path="/active_event"
-                render={props => !auth.isAuthenticated()
-                  ? <Redirect to="/" />
-                  : <EventChat auth={auth} {...props} />} />
-              <Route path='/dm_chat' component={DMChat} />
-              <Route
-                  path="/previouseventphotos"
-                  component={previousEventPhotos}
+                render={props => (!auth.isAuthenticated() ? <Redirect to="/" /> : <EventChat auth={auth} {...props} />)}
               />
-             
+              <Route path="/dm_chat" component={DMChat} />
+              <Route path="/previouseventphotos" component={previousEventPhotos} />
             </Switch>
           </div>
         </BrowserRouter>
 
         {renderFooter()}
-
       </div>
     );
   }
